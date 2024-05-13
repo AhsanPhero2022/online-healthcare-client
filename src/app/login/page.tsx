@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Box,
   Button,
@@ -10,7 +12,27 @@ import {
 import assets from "@/assets/";
 import Image from "next/image";
 import Link from "next/link";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+import { loginPatient } from "@/services/actions/loginPatient";
+
+export type FormValues = {
+  email: string;
+  password: string;
+};
+
 const LoginPage = () => {
+  const { register, handleSubmit } = useForm<FormValues>();
+
+  const onSubmit: SubmitHandler<FormValues> = async (values) => {
+    try {
+      const res = await loginPatient(values);
+      console.log(res);
+    } catch (err: any) {
+      console.log(err.massage);
+    }
+  };
+
   return (
     <Container>
       <Stack
@@ -41,7 +63,7 @@ const LoginPage = () => {
               </Typography>
             </Box>
             <Box>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <Grid container spacing={2} my={1}>
                   <Grid item md={6}>
                     <TextField
@@ -50,6 +72,7 @@ const LoginPage = () => {
                       variant="outlined"
                       size="small"
                       fullWidth={true}
+                      {...register("email")}
                     />
                   </Grid>
                   <Grid item md={6}>
@@ -59,6 +82,7 @@ const LoginPage = () => {
                       variant="outlined"
                       size="small"
                       fullWidth={true}
+                      {...register("password")}
                     />
                   </Grid>
                 </Grid>
@@ -77,6 +101,7 @@ const LoginPage = () => {
                     margin: "10px 0px",
                   }}
                   fullWidth={true}
+                  type="submit"
                 >
                   Login
                 </Button>
