@@ -15,6 +15,7 @@ import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { loginPatient } from "@/services/actions/loginPatient";
+import { storeUserInfo } from "@/services/auth.services";
 
 export type FormValues = {
   email: string;
@@ -28,6 +29,9 @@ const LoginPage = () => {
     try {
       const res = await loginPatient(values);
       console.log(res);
+      if (res?.data?.accessToken) {
+        storeUserInfo({ accessToken: res.data.accessToken });
+      }
     } catch (err: any) {
       console.log(err.massage);
     }
