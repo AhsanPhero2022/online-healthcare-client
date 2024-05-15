@@ -6,23 +6,21 @@ import {
   Container,
   Grid,
   Stack,
-  TextField,
   Typography,
 } from "@mui/material";
 import assets from "@/assets/";
 import Image from "next/image";
 import Link from "next/link";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-
+import { FieldValues } from "react-hook-form";
 import { storeUserInfo } from "@/services/auth.services";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { userLogin } from "@/services/actions/loginPatient";
 import PHForm from "@/components/Forms/PHForm";
+import PHInput from "@/components/Forms/PHInput";
+import { userLogin } from "@/services/actions/userLogin";
 
 const LoginPage = () => {
   const router = useRouter();
-  const { register, handleSubmit } = useForm<FormValues>();
 
   const handleLogin = async (values: FieldValues) => {
     try {
@@ -71,23 +69,19 @@ const LoginPage = () => {
               <PHForm onSubmit={handleLogin}>
                 <Grid container spacing={2} my={1}>
                   <Grid item md={6}>
-                    <TextField
+                    <PHInput
+                      name="email"
                       label="Email"
                       type="Email"
-                      variant="outlined"
-                      size="small"
                       fullWidth={true}
-                      {...register("email")}
                     />
                   </Grid>
                   <Grid item md={6}>
-                    <TextField
+                    <PHInput
+                      name="password"
                       label="Password"
                       type="Password"
-                      variant="outlined"
-                      size="small"
                       fullWidth={true}
-                      {...register("password")}
                     />
                   </Grid>
                 </Grid>
