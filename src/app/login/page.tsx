@@ -14,8 +14,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { loginPatient } from "@/services/actions/loginPatient";
 import { storeUserInfo } from "@/services/auth.services";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { userLogin } from "@/services/actions/loginPatient";
 
 export type FormValues = {
   email: string;
@@ -23,14 +25,17 @@ export type FormValues = {
 };
 
 const LoginPage = () => {
+  const router = useRouter();
   const { register, handleSubmit } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
     try {
-      const res = await loginPatient(values);
+      const res = await userLogin(values);
       console.log(res);
       if (res?.data?.accessToken) {
+        toast.success(res?.message);
         storeUserInfo({ accessToken: res.data.accessToken });
+        router.push("/");
       }
     } catch (err: any) {
       console.log(err.massage);
