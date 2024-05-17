@@ -78,7 +78,12 @@ const RegisterPage = () => {
             <PHForm onSubmit={handleRegister}>
               <Grid container spacing={2} my={1}>
                 <Grid item md={12}>
-                  <PHInput label="Name" name="patient.name" fullWidth={true} />
+                  <PHInput
+                    label="Name"
+                    required={true}
+                    name="patient.name"
+                    fullWidth={true}
+                  />
                 </Grid>
                 <Grid item md={6}>
                   <PHInput
@@ -86,6 +91,7 @@ const RegisterPage = () => {
                     type="Email"
                     fullWidth={true}
                     name="patient.email"
+                    required={true}
                   />
                 </Grid>
                 <Grid item md={6}>
@@ -94,6 +100,7 @@ const RegisterPage = () => {
                     type="Password"
                     fullWidth={true}
                     name="password"
+                    required={true}
                   />
                 </Grid>
                 <Grid item md={6}>
@@ -102,6 +109,7 @@ const RegisterPage = () => {
                     type="Tel"
                     fullWidth={true}
                     name="patient.contactNumber"
+                    required={true}
                   />
                 </Grid>
                 <Grid item md={6}>

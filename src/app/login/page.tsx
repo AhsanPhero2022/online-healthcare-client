@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import assets from "@/assets/";
 import Image from "next/image";
 import Link from "next/link";
@@ -71,6 +64,7 @@ const LoginPage = () => {
                   <Grid item md={6}>
                     <PHInput
                       name="email"
+                      required={true}
                       label="Email"
                       type="Email"
                       fullWidth={true}
@@ -81,6 +75,7 @@ const LoginPage = () => {
                       name="password"
                       label="Password"
                       type="Password"
+                      required={true}
                       fullWidth={true}
                     />
                   </Grid>
