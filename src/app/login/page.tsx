@@ -11,6 +11,13 @@ import { useRouter } from "next/navigation";
 import PHForm from "@/components/Forms/PHForm";
 import PHInput from "@/components/Forms/PHInput";
 import { userLogin } from "@/services/actions/userLogin";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+export const validationSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+  password: z.string().min(6, "enter at least 6 characters password"),
+});
 
 const LoginPage = () => {
   const router = useRouter();
@@ -59,12 +66,18 @@ const LoginPage = () => {
               </Typography>
             </Box>
             <Box>
-              <PHForm onSubmit={handleLogin}>
+              <PHForm
+                onSubmit={handleLogin}
+                resolver={zodResolver(validationSchema)}
+                defaultValues={{
+                  email: "",
+                  password: "",
+                }}
+              >
                 <Grid container spacing={2} my={1}>
                   <Grid item md={6}>
                     <PHInput
                       name="email"
-                      required={true}
                       label="Email"
                       type="Email"
                       fullWidth={true}
@@ -75,7 +88,6 @@ const LoginPage = () => {
                       name="password"
                       label="Password"
                       type="Password"
-                      required={true}
                       fullWidth={true}
                     />
                   </Grid>
