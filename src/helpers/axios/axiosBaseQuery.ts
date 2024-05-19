@@ -1,5 +1,4 @@
 import { IMeta } from "@/types";
-import { createApi } from "@reduxjs/toolkit/query";
 import type { BaseQueryFn } from "@reduxjs/toolkit/query";
 import axios from "axios";
 import type { AxiosRequestConfig, AxiosError } from "axios";
@@ -28,7 +27,7 @@ export const axiosBaseQuery =
         params,
         headers,
       });
-      return { data: result.data };
+      return result;
     } catch (axiosError) {
       const err = axiosError as AxiosError;
       return {
