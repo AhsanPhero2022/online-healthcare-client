@@ -28,9 +28,9 @@ type TModalProps = {
 };
 
 export default function PHModal({
-  open,
+  open = false,
   setOpen,
-  title,
+  title = "",
   children,
   sx,
 }: TModalProps) {
