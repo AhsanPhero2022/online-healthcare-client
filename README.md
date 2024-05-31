@@ -14,7 +14,7 @@ npm install
 npm run dev
 
 ```
-Then, run the development server: server repo link [here]([https://github.com/Apollo-Level2-Web-Dev/HealthCare-Server.git](https://github.com/AhsanPhero2022/health-care-server.git))
+Then, run the development server: server repo link [here]([https://github.com/Apollo-Level2-Web-Dev/HealthCare-Server.git](https://github.com/AhsanPhero2022/health-care-server.git)
 
 ```bash
 cd folder name
