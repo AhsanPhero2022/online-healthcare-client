@@ -4,16 +4,24 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, clone this repository:
 
 ```bash
+cd online-healthcare-client
+# and
+npm install
+# and
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+```
+Then, run the development server: server repo link [here]([https://github.com/Apollo-Level2-Web-Dev/HealthCare-Server.git](https://github.com/AhsanPhero2022/health-care-server.git))
+
+```bash
+cd folder name
+# and
+npm install
+# and
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
