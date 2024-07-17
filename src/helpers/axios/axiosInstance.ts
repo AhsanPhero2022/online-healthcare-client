@@ -1,4 +1,4 @@
-import { authKey } from "@/constants/authkey";
+import { authKey } from "@/contants/authkey";
 import { IGenericErrorResponse, ResponseSuccessType } from "@/types";
 import { getFromLocalStorage } from "@/utils/local-storage";
 import axios from "axios";

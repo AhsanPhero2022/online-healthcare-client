@@ -14,7 +14,7 @@
     "@emotion/styled": "^11.11.5",
     "@hookform/resolvers": "^3.4.0",
     "@mui/icons-material": "^5.15.15",
-    "@mui/material": "^5.15.15",
+    "@mui/material": "^5.16.1",
     "@mui/material-nextjs": "^5.15.11",
     "@mui/x-data-grid": "^7.5.1",
     "@reduxjs/toolkit": "^2.2.5",

@@ -15,7 +15,7 @@ const SpecialtiesPage = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const { data, isLoading } = useGetAllSpecialtiesQuery({});
   const [deleteSpecialty] = useDeleteSpecialtyMutation();
-
+  console.log(data);
   const handleDelete = async (id: string) => {
     try {
       const res = await deleteSpecialty(id).unwrap();
@@ -67,7 +67,7 @@ const SpecialtiesPage = () => {
       </Stack>
       {!isLoading ? (
         <Box my={2}>
-          <DataGrid rows={data} columns={columns} />
+          <DataGrid rows={data} columns={columns} hideFooter={true} />
         </Box>
       ) : (
         <h1>Loading.....</h1>
