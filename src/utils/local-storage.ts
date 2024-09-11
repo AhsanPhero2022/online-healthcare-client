@@ -1,4 +1,4 @@
-export const setLocalStorage = (key: string, token: string) => {
+export const setToLocalStorage = (key: string, token: string) => {
   if (!key || typeof window === "undefined") {
     return "";
   }
@@ -11,6 +11,7 @@ export const getFromLocalStorage = (key: string) => {
   }
   return localStorage.getItem(key);
 };
+
 export const removeFromLocalStorage = (key: string) => {
   if (!key || typeof window === "undefined") {
     return "";
